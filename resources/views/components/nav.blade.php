@@ -20,14 +20,14 @@
             <a class="nav-link active" aria-current="page" href="{{url('/home')}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Projetos</a>
+            <a class="nav-link" href="{{route('projetos.index')}}">Projetos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sprints</a>
+            <a class="nav-link" href="{{route('sprints.index')}}">Sprints</a>
           </li>
           <li class="nav-item">
             <a class="nav-link "
-              >Tarefas</a
+              >Home</a
             >
           </li>
         </ul>

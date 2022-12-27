@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProjetoController;
+use App\Http\Controllers\SprintController;
+use App\Http\Controllers\TarefaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +25,16 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::resource('/projetos', SeriesController::class)
+Route::resource('/projetos', ProjetoController::class)
     ->except(['show']);
+
+Route::resource('/sprints', SprintController::class)
+->except(['show']);
+
+Route::resource('/tarefas', TarefaController::class)
+->except(['show']);
+
+
+
+// Route::resource('/projetos', SeriesController::class)
+//  ->except(['show']);

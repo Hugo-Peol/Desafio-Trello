@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('numero_usuario', 45)->nullable();
             $table->unsignedBigInteger('usuarios_id');
             $table->unsignedBigInteger('tarefas_id');
-            $table->unsignedBigInteger('tarefas_sprints_id');
-            $table->unsignedBigInteger('tarefas_status_tarefa_id');
-            $table->unsignedBigInteger('tarefas_projetos_usuarios_id');
+            // $table->unsignedBigInteger('tarefas_sprints_id');
+            // $table->unsignedBigInteger('tarefas_status_tarefa_id');
+            // $table->unsignedBigInteger('tarefas_projetos_usuarios_id');
 
             // $table->primary(['id', 'usuários_id', 'tarefas_id', 'tarefas_sprints_id', 'tarefas_status_tarefa_id', 'tarefas_projetos_usuarios_id']);
            

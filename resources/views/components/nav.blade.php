@@ -1,6 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+<nav class="navbar navbar-expand-lg navbar-light " style="background: rgba(74, 90, 122, 0.514)">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">PlannerDO</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -15,17 +17,17 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="{{url('/home')}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">Projetos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link" href="#">Sprints</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled"
-              >Disabled</a
+            <a class="nav-link "
+              >Tarefas</a
             >
           </li>
         </ul>

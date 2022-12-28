@@ -1,4 +1,4 @@
-<x-layout title="Painel de Projetos">
+<x-layout title="Painel de Projetos" :mensagem-sucesso="$mensagemSucesso">
 
 {{-- @foreach ($projetos as $projeto)
 

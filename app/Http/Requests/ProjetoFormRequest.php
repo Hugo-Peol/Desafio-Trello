@@ -24,7 +24,13 @@ class ProjetoFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome_projeto' => ['required', 'min:3'],
+            'nome_projeto' => ['required', 'min:1'],
+            'tipo_projeto' => ['required', 'string'],
+            'descricao' => ['required', 'string', 'min:1'],
+            'data_inicio' => ['required', 'date'],
+            'templates_projeto' => ['required', 'string',]
+
+            
         ];
     }
 }

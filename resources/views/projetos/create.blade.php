@@ -1,4 +1,4 @@
-<x-style title="Cadastrar novo projeto">
+<x-style title="Cadastrar novo projeto" :mensagem-sucesso="$mensagemSucesso">
 
 
 <x-form-criar-projeto>

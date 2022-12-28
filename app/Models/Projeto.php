@@ -9,4 +9,5 @@ class Projeto extends Model
 {
     
     protected $guarded = ['id'];
+    
 }

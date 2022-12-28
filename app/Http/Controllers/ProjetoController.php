@@ -17,7 +17,7 @@ class ProjetoController extends Controller
     public function index()
     {
         $projetos = Projeto::all();
-
+        
 
 
         return view('projetos.index')->with('projetos', $projetos);
@@ -43,6 +43,11 @@ class ProjetoController extends Controller
     public function store(ProjetoFormRequest $request)
     {
         Projeto::create($request->all());
+
+        $mensagemSucesso = session('mensagem.sucesso');
+        $request->session()->put('mensagem.sucesso', 'Projeto criado com sucesso');
+        
+        
 
         return view('projetos.create');
     }

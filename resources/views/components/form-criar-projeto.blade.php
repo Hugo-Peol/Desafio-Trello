@@ -25,15 +25,15 @@
                 <h5>Templates do Projeto</h5>
             {{-- checkboxs --}}
             <div class="form-check">
-              <input class="form-check-input" type="radio" value="" id="flexCheckDefault">
+              <input class="form-check-input" name="templates_projeto" type="radio" value="SCRUM" id="flexCheckDefault">
               <label class="form-check-label" for="flexCheckDefault">
-                Default checkbox
+                SCRUM
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" value="" id="flexCheckChecked" checked>
+              <input class="form-check-input" name="templates_projeto" type="radio" value="KANBAN" id="flexCheckChecked" >
               <label class="form-check-label" for="flexCheckChecked">
-                Checked checkbox
+                KANBAN 
               </label>
             </div>
 

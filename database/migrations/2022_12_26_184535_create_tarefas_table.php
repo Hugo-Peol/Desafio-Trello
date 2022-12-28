@@ -16,15 +16,16 @@ return new class extends Migration
         Schema::create('tarefas', function (Blueprint $table) {
 
             $table->id();
-            $table->string('nome', 45)->nullable();
-            $table->string('descricao', 45)->nullable();
+            $table->string('nome', 45);
+            $table->string('descricao', 45);
             $table->unsignedBigInteger('sprints_id');
             $table->unsignedBigInteger('status_tarefa_id');
             $table->unsignedBigInteger('projetos_usuarios_id');
-            $table->unsignedBigInteger('numero_tarefa')->nullable();
-            $table->string('titulo_tarefa', 200)->nullable();
-            $table->string('numero_sprint', 45)->nullable();
-            $table->string('comentario_tarefa', 200)->nullable();
+            $table->unsignedBigInteger('numero_tarefa');
+            $table->string('titulo_tarefa', 200);
+            $table->string('numero_sprint', 45);
+            $table->string('comentario_tarefa', 200);
+            $table->timestamps();
 
             
             // $table->primary(['id', 'sprints_id', 'status_tarefa_id', 'projetos_usuarios_id']);

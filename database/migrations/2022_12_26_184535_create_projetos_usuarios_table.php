@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('projetos_id');
             $table->unsignedBigInteger('usuários_id');
+            $table->timestamps();
 
             // $table->primary(['id', 'projetos_id', 'usuários_id']);
         });

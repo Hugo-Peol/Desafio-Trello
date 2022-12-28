@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('status_tarefa', function (Blueprint $table) {
             $table->id();
-            $table->string('status', 60)->nullable();
+            $table->string('status', 60);
+            $table->timestamps();
         });
     }
 

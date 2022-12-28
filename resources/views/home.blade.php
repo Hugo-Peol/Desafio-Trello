@@ -1,6 +1,6 @@
 <x-style title='HOME'>
 
-<a href="http://">
+<a href="{{route('projetos.create')}}">
 
     <button type="button" class="btn btn-primary">Novo Projeto</button>
 

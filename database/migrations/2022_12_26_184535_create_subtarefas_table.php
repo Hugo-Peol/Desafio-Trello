@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('subtarefas', function (Blueprint $table) {
             $table->id();
-            $table->string('nome', 45)->nullable();
-            $table->string('descricao', 45)->nullable();
+            $table->string('nome', 45);
+            $table->string('descricao', 45);
             $table->unsignedBigInteger('tarefas_id');
             $table->unsignedBigInteger('status_sub_tarefa_id');
+            $table->timestamps();
 
             // $table->primary(['id', 'tarefas_id', 'status_sub_tarefa_id']);
         });

@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('projetos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome_projeto', 45)->nullable();
-            $table->timestamp('data_criacao'); 
-            $table->string('tipo_projeto', 100)->nullable()->comment('Serve para indicar se é software,servico etc');
-            $table->string('descricao', 200)->nullable();
-            $table->timestamp('data_inicio')->nullable(); 
-            $table->string('templates_projeto', 45)->nullable();
-
+            $table->string('nome_projeto', 45);
+            
+            $table->string('tipo_projeto', 100)->comment('Serve para indicar se é software,servico etc');
+            $table->string('descricao', 200);
+            $table->date('data_inicio'); 
+            $table->string('templates_projeto', 45);
+            $table->timestamps();
             
         });
     }

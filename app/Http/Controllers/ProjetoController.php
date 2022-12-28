@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Projeto;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProjetoFormRequest;
+
 
 class ProjetoController extends Controller
 {
@@ -14,7 +16,12 @@ class ProjetoController extends Controller
      */
     public function index()
     {
-        return view('projetos.index');
+        $projetos = Projeto::all();
+
+
+
+        return view('projetos.index')->with('projetos', $projetos);
+        
     }
 
     /**
@@ -33,7 +40,7 @@ class ProjetoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProjetoFormRequest $request)
     {
         Projeto::create($request->all());
 
@@ -69,7 +76,7 @@ class ProjetoController extends Controller
      * @param  \App\Models\Projeto  $projeto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Projeto $projeto)
+    public function update(ProjetoFormRequest $request, Projeto $projeto)
     {
         //
     }

@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('sprints', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('data_inicio')->nullable();
-            $table->dateTime('data_fim')->nullable();
-            $table->string('nome_do_sprint', 100)->nullable();
-            $table->tinyInteger('sprint_ativo')->nullable()->comment('Eh pra ser um boolean');
+            $table->dateTime('data_inicio');
+            $table->dateTime('data_fim');
+            $table->string('nome_do_sprint', 100);
+            $table->tinyInteger('sprint_ativo')->comment('Eh pra ser um boolean');
+            $table->timestamps();
         });
     }
 

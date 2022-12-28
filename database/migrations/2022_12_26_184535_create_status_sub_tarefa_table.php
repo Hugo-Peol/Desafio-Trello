@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('status_sub_tarefa', function (Blueprint $table) {
             $table->id();
-            $table->string('status', 45)->nullable();
+            $table->string('status', 45);
+            $table->timestamps();
         });
     }
 

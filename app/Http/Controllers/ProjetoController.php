@@ -31,7 +31,8 @@ class ProjetoController extends Controller
      */
     public function create()
     {
-        return view('projetos.create');
+        $mensagemSucesso = session('mensagem.sucesso');
+        return view('projetos.create')->with('mensagemSucesso', $mensagemSucesso);
     }
 
     /**
@@ -44,12 +45,11 @@ class ProjetoController extends Controller
     {
         Projeto::create($request->all());
 
-        $mensagemSucesso = session('mensagem.sucesso');
-        $request->session()->put('mensagem.sucesso', 'Projeto criado com sucesso');
         
         
 
-        return view('projetos.create');
+        return to_route('projetos.create')
+        ->with('mensagem.sucesso', "Projeto '{$request->nome_projeto}' criado com sucesso!");
     }
 
     /**
@@ -60,7 +60,10 @@ class ProjetoController extends Controller
      */
     public function show(Projeto $projeto)
     {
-        //
+
+        
+
+        return view('projetos.show', $projeto )->with('projeto', $projeto);
     }
 
     /**

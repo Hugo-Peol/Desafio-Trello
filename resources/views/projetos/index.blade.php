@@ -13,15 +13,27 @@
     </a> --}}
 </div>
 
-@foreach ($projetos as $projeto)
-
-
-<x-card-projetos :projeto=$projeto>
+@isset($modal)
+  
+<x-modal-projeto>
     
-</x-card-projetos>
+</x-modal-projeto>
 
-@endforeach
+@endisset
+    
 
+
+
+
+<div class="container text-center">
+    <div class="row mt-2">
+        @foreach ($projetos as $projeto)
+            <x-card-projetos :projeto=$projeto>
+
+            </x-card-projetos>
+        @endforeach
+    </div>    
+</div>
 
 
 

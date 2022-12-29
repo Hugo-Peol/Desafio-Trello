@@ -26,7 +26,7 @@ Route::get('/home', function () {
 })->name('home');
 
 Route::resource('/projetos', ProjetoController::class)
-    ->except(['show']);
+    ->except(['']);
 
 Route::resource('/sprints', SprintController::class)
 ->except(['show']);

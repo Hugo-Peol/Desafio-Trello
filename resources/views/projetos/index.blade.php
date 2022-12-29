@@ -13,13 +13,12 @@
     </a> --}}
 </div>
 
-@isset($modal)
-  
-<x-modal-projeto>
-    
-</x-modal-projeto>
 
-@endisset
+  
+
+
+
+
     
 
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProjetoFormRequest;
 
 
+
 class ProjetoController extends Controller
 {
     /**
@@ -17,6 +18,7 @@ class ProjetoController extends Controller
     public function index()
     {
         $projetos = Projeto::all();
+        
         
 
 
@@ -45,7 +47,7 @@ class ProjetoController extends Controller
     {
         Projeto::create($request->all());
 
-        
+
         
 
         return to_route('projetos.create')
@@ -74,7 +76,7 @@ class ProjetoController extends Controller
      */
     public function edit(Projeto $projeto)
     {
-        //
+        return view('projetos.edit')->with('projeto', $projeto);
     }
 
     /**

@@ -1,6 +1,6 @@
 
 
-        <div class="mt-2 col-lg-6 col-md-6 col-xxl-4">
+        <div class="mt-3 col-lg-6 col-md-6 col-xxl-4">
             <!-- project card -->
             <div class="card d-block">
                 <div class="card-body">
@@ -12,7 +12,7 @@
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-pencil me-1"></i>Editar</a>
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-delete me-1"></i>Deletar</a>
+                            <a href="" class="dropdown-item"><i class="mdi mdi-delete me-1"></i>Deletar</a>
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-email-outline me-1"></i>Invitar</a>
                             <!-- item-->
@@ -22,6 +22,7 @@
                     <!-- project title-->
                     <h4 class="mt-0">
                         <a href="{{route('projetos.show', $projeto->id)}}" class="text-title">{{$projeto->nome_projeto}}</a>
+                      
                     </h4>
                     <div class="badge bg-success">-Status-</div>
 

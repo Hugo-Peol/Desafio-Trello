@@ -24,6 +24,12 @@
     <a href={{ route('projetos.edit', $projeto->id) }}><button class="mt-3 btn btn-danger">
         Editar
     </button></a>
+    <form action="{{ route('projetos.destroy', ['projeto' => $projeto]) }}" method="post">
+        @csrf
+        @method('DELETE')
+        <button class="mt-3 btn btn-danger" >Deletar</button>
+    </form>
+    
 
 </div>
  

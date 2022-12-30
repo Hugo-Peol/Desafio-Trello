@@ -1,14 +1,14 @@
-<form action="{{route('projetos.store')}}" method="post">
+<form action="{{ $action }}" method="post">
 @csrf
+@isset($editar)
+  @method('PUT')
+@endisset
     <div class="container mt-3">
         <div class="form-group col-10">
             {{-- campo para nome do projeto --}}
             <div class="input-group mb-3">
                 <span class="input-group-text" id="NomeProjeto" >Nome do Projeto</span>
-                <input  @isset($projeto->nome_projeto)
-                value="{{ $projeto->nome_projeto }}"
-                  
-                @endisset placeholder="Nome do Projeto"type="text" name="nome_projeto" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
+                <input value="{{ old('nome_projeto', $projeto->nome_projeto) }}"  placeholder="Nome do Projeto"type="text"  name="nome_projeto" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
               </div>
             {{-- fim do campo --}}
             {{-- campo para Descrição do projeto --}}

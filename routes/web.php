@@ -26,7 +26,11 @@ Route::get('/home', function () {
 })->name('home');
 
 Route::resource('/projetos', ProjetoController::class);
-Route::resource('/sprints', SprintController::class)
+
+Route::resource('projetos.sprints', ProjetosSprintsController::class);
+
+
+Route::resource('projetos/sprints', SprintController::class)
 ->except(['show']);
 
 Route::resource('/tarefas', TarefaController::class)

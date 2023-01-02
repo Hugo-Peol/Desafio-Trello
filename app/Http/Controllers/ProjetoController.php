@@ -52,7 +52,7 @@ class ProjetoController extends Controller
 
         Projeto::create($request->all());
 
-        return to_route('projetos.create')
+        return to_route('projetos.index')
         ->with('mensagem.sucesso', "Projeto '{$request->nome_projeto}' criado com sucesso!");
     }
 

@@ -19,17 +19,22 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('projetos.index')}}">Projetos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('sprints.index')}}">Sprints</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="{{route('tarefas.index')}}">
-              Tarefas</a
-            >
-          </li>
+          
+            
+            
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('projetos.index')}}">Projetos</a>
+            </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('sprints.index')}}">Sprints</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="{{route('tarefas.index')}}">
+                Tarefas</a
+              >
+            </li>
+ 
         </ul>
       </div>
     </div>

@@ -34,7 +34,10 @@ class ProjetoController extends Controller
 
 
         $mensagemSucesso = session('mensagem.sucesso');
-        return view('projetos.create', ['projeto' => $projeto] )->with('mensagemSucesso', $mensagemSucesso);
+        return view('projetos.create', [
+            'projeto' => $projeto, 
+            'mensagemSucesso', $mensagemSucesso
+            ]);
     }
 
     /**
@@ -62,7 +65,6 @@ class ProjetoController extends Controller
     public function show(Projeto $projeto)
     {
 
-        
 
         return view('projetos.show', $projeto )->with('projeto', $projeto);
     }

@@ -21,7 +21,7 @@
 
   <main>
 
-      <style>
+    <style>
     .gradient-custom {
     /* fallback for old browsers */
     background: #6a11cb;

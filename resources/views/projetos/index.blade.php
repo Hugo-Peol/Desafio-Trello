@@ -1,4 +1,4 @@
-<x-style title="Projetos">
+<x-style title="Projetos" >
 
 
 {{-- variavel com nome do projeto --}}
@@ -12,14 +12,6 @@
         <button type="button" class="btn btn-primary">Ver Projetos</button>
     </a> --}}
 </div>
-
-
-  
-
-
-
-
-    
 
 
 

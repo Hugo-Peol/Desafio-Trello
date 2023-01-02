@@ -24,7 +24,7 @@ class SprintController extends Controller
      */
     public function create()
     {
-        //
+        return view('sprints.create');
     }
 
     /**

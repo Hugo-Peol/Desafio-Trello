@@ -36,7 +36,7 @@ class ProjetoSprintController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

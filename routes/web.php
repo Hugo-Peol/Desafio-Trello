@@ -27,10 +27,10 @@ Route::get('/home', function () {
 
 Route::resource('/projetos', ProjetoController::class);
 
-Route::resource('projetos.sprints', ProjetosSprintsController::class);
+Route::resource('/sprints', SprintController::class);
 
 
-Route::resource('projetos/sprints', SprintController::class)
+Route::resource('projetos/sprints', ProjetoSprintController::class)
 ->except(['show']);
 
 Route::resource('/tarefas', TarefaController::class)

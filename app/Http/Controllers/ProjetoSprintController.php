@@ -14,7 +14,7 @@ class ProjetoSprintController extends Controller
      */
     public function index()
     {
-        //
+        return view('sprints.index');
     }
 
     /**

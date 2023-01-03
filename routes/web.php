@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\SprintController;
 use App\Http\Controllers\TarefaController;
-
+use App\Http\Controllers\ProjetoSprintController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +30,7 @@ Route::resource('/projetos', ProjetoController::class);
 Route::resource('/sprints', SprintController::class);
 
 
-Route::resource('projetos/sprints', ProjetoSprintController::class)
+Route::resource('projetos.sprints', ProjetoSprintController::class)
 ->except(['show']);
 
 Route::resource('/tarefas', TarefaController::class)

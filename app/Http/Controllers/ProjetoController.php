@@ -18,8 +18,10 @@ class ProjetoController extends Controller
     public function index()
     {
         $projetos = Projeto::all();
+        $mensagemSucesso = session('mensagemSucesso') ?? null;
+        
 
-        return view('projetos.index')->with('projetos', $projetos);
+        return view('projetos.index')->with('projetos', $projetos)->with('mensagemSucesso', $mensagemSucesso);
         
     }
 
@@ -33,11 +35,9 @@ class ProjetoController extends Controller
         $projeto = new Projeto;
 
 
-        $mensagemSucesso = session('mensagem.sucesso');
+        $mensagemSucesso = session('mensagemSucesso');
         return view('projetos.create', [
-            'projeto' => $projeto, 
-            'mensagemSucesso', $mensagemSucesso
-            ]);
+            'projeto' => $projeto,])->with('mensagemSucesso', $mensagemSucesso)            ;
     }
 
     /**
@@ -53,7 +53,7 @@ class ProjetoController extends Controller
         Projeto::create($request->all());
 
         return to_route('projetos.index')
-        ->with('mensagem.sucesso', "Projeto '{$request->nome_projeto}' criado com sucesso!");
+        ->with('mensagemSucesso', "Projeto '{$request->nome_projeto}' criado com sucesso!");
     }
 
     /**
@@ -95,7 +95,7 @@ class ProjetoController extends Controller
        
         $projeto->save();
 
-        return to_route('projetos.index')->with('mensagem.sucesso', "Projeto '{$projeto->nome_projeto}' atualizado com sucesso!");
+        return to_route('projetos.index')->with('mensagemSucesso', "Projeto '{$projeto->nome_projeto}' atualizado com sucesso!");
     }
 
     /**
@@ -110,6 +110,6 @@ class ProjetoController extends Controller
         $projeto->delete();
         
         return to_route('projetos.index')
-            ->with('mensagem.sucesso', "Projeto '{$projeto->nome_projeto}' removido com sucesso!");
+            ->with('mensagemSucesso', "Projeto '{$projeto->nome_projeto}' removido com sucesso!");
     }
 }

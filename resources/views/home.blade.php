@@ -1,4 +1,4 @@
-<x-style title='HOME'>
+<x-style title='HOME' >
 
 <a href="{{route('projetos.create')}}">
 

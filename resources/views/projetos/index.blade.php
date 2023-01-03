@@ -1,4 +1,4 @@
-<x-style title="Projetos" >
+<x-style title="Projetos" :mensagem-sucesso="$mensagemSucesso">
 
 
 {{-- variavel com nome do projeto --}}

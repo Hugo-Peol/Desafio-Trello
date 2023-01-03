@@ -77,7 +77,7 @@ class ProjetoController extends Controller
      */
     public function edit(Projeto $projeto)
     {
-     
+        dd($projeto->sprints);
         return view('projetos.edit')->with('projeto', $projeto);
     }
 

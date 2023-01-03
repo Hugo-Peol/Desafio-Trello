@@ -3,8 +3,6 @@
 
 <x-form-criar-projeto action="{{route('projetos.store')}}" :projeto="$projeto" >
 
-
-
     
 </x-form-criar-projeto>
 

@@ -27,7 +27,7 @@ Route::get('/home', function () {
 
 Route::resource('/projetos', ProjetoController::class);
 
-Route::resource('/sprints', SprintController::class);
+
 
 
 Route::resource('projetos.sprints', ProjetoSprintController::class)

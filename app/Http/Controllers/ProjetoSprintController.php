@@ -12,9 +12,10 @@ class ProjetoSprintController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('sprints.index');
+        
+        return view('sprints.index')->with('projeto', $request);
     }
 
     /**

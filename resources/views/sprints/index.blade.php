@@ -1,25 +1,22 @@
 <x-style title="Sprints" >
               {{-- lista select --}}  
-              <div class="mt-2">
-                <label for="" class="form-label">Selecione o projeto:</label>
-                <select class="form-select form-select-lg" name="tipo_projeto" id="TipoProjeto">
-                    <option selected>p1</option>
-                    <option value="">p2</option>
-                </select>
-              </div>
-            <br>
-          </div>
-{{-- {{-- fazer algo que deixe ativo um projeto// botar na nav qual  q esta ativo -- ou seleciona na lista e ja aparece}} --}}
-{{-- cadastrar sprint --}}
+<div class="mt-2">
+  <label for="" class="form-label">Selecione a sprint:</label>
+  <select class="form-select form-select-lg" name="tipo_projeto" id="TipoProjeto">
+      <option selected>1</option>
+      <option value="">2</option>
+  </select>
+</div>
+<br>
+</div>
+
 
 <div class="container mt-2">
-    <a href="{{ route('sprints.create') }}">
+    <a href="{{ route('projetos.sprints.create', $projeto->id) }}">
         <button type="button" class="btn btn-primary">Criar nova sprint</button>
     </a>
 
-    {{-- <a href="{{ route('projetos.show') }}">
-        <button type="button" class="btn btn-primary">Ver Projetos</button>
-    </a> --}}
+
 </div>
 {{--(FIM) cadastrar sprint --}}
 

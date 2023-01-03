@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('projetos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome_projeto', 45);
-            
+            $table->string('nome_projeto', 45);          
             $table->string('tipo_projeto', 100)->comment('Serve para indicar se é software,servico etc');
             $table->string('descricao', 200);
             $table->date('data_inicio'); 

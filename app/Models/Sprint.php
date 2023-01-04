@@ -11,7 +11,7 @@ class Sprint extends Model
 
     public function projetos()
     {
-        return $this->belongsTo(Projeto::class);
+        return $this->belongsToMany(Projeto::class, 'projetos_tem_sprints');
     }
 
     public function tarefas()

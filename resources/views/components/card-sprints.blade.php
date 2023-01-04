@@ -38,7 +38,7 @@
                         </span>
                         <span class="text-nowrap mb-2 d-inline-block">
                             <i class="mdi mdi-comment-multiple-outline text-muted"></i>
-                            <b>741</b> Comentários
+                            <b>741</b> Sprints
                         </span>
                     </p>
                     <div id="tooltip-container">

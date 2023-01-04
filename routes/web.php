@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\SprintController;
 use App\Http\Controllers\TarefaController;
 use App\Http\Controllers\ProjetoSprintController;
+use App\Http\Middleware\Autenticador;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,14 +18,16 @@ use App\Http\Controllers\ProjetoSprintController;
 |
 */
 
-Route::get('/', function () {
-    return view('login.index');
-});
+Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::post('/', [LoginController::class, 'store'])->name('sigin');
+Route::get('/registrar', [UserController::class, 'create'])->name('user.create');
+
+
 
 
 Route::get('/home', function () {
     return view('home');
-})->name('home');
+})->name('home')->middleware(Autenticador::class);
 
 Route::resource('/projetos', ProjetoController::class);
 

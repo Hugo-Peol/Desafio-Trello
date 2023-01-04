@@ -11,9 +11,9 @@ class Projeto extends Model
     
     protected $guarded = ['id'];
 
-    public function sprint()
+    public function sprints()
     {
-        return $this->hasMany(Sprint::class, 'projetos_id', 'id');
+        return $this->belongsToMany(Sprint::class, 'projetos_tem_sprints');
     }
     
 }

@@ -37,7 +37,11 @@
                         </span>
                         <span class="text-nowrap mb-2 d-inline-block">
                             <i class="mdi mdi-comment-multiple-outline text-muted"></i>
-                            <b>741</b> Comentários
+                            <b>{{$projeto->sprints->count()}}</b> Sprints
+                        </span>
+                        <span class="text-nowrap mb-2 d-inline-block">
+                            <i class="mdi mdi-comment-multiple-outline text-muted"></i>
+                            <b>1</b> Comentarios
                         </span>
                     </p>
                     <div id="tooltip-container">

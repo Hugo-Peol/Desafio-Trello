@@ -77,7 +77,9 @@ class ProjetoController extends Controller
      */
     public function edit(Projeto $projeto)
     {
-        dd($projeto->sprints);
+            // dd($projeto->sprints); trás somente as sprints vinculadas, sem o projeto em si
+            // dd($projeto->with('sprints')->get()); trás o projeto e todas as sprints vinculadasout
+            
         return view('projetos.edit')->with('projeto', $projeto);
     }
 

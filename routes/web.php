@@ -7,6 +7,9 @@ use App\Http\Controllers\SprintController;
 use App\Http\Controllers\TarefaController;
 use App\Http\Controllers\ProjetoSprintController;
 use App\Http\Middleware\Autenticador;
+use App\Http\Controllers\UserController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +24,8 @@ use App\Http\Middleware\Autenticador;
 Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::post('/', [LoginController::class, 'store'])->name('sigin');
 Route::get('/registrar', [UserController::class, 'create'])->name('user.create');
+Route::post('/registrar', [UserController::class, 'store'])->name('user.store');
+Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
 
 
 
@@ -29,17 +34,16 @@ Route::get('/home', function () {
     return view('home');
 })->name('home')->middleware(Autenticador::class);
 
-Route::resource('/projetos', ProjetoController::class);
+Route::resource('/projetos', ProjetoController::class)->middleware(Autenticador::class);;
 
 
 
 
 Route::resource('projetos.sprints', ProjetoSprintController::class)
-->except(['show']);
+->middleware(Autenticador::class);;
 
 Route::resource('/tarefas', TarefaController::class)
-->except(['show']);
-
+->except(['show'])->middleware(Autenticador::class);
 
 
 // Route::resource('/projetos', SeriesController::class)

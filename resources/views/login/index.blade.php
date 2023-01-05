@@ -56,13 +56,13 @@
       
                     <div class="form-outline form-white mb-4">
                       <label class="form-label" for="typeEmailX">Email:</label>
-                      <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                      <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" />
                       
                     </div>
       
                     <div class="form-outline form-white mb-4">
                       <label class="form-label" for="typePasswordX">Senha:</label>
-                      <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                      <input type="password" name="password" id="password" class="form-control form-control-lg" />
                       
                     </div>
       

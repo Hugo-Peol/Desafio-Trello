@@ -22,8 +22,13 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('projetos.index')}}">Projetos</a>
           </li>
-
+          <li class="nav-item position-absolute top-0 end-0">
+            <h4><a class="nav-link" href="{{route('logout')}}">Log-out</a></h4>
+          </li>
+       
+          
         </ul>
+       
       </div>
     </div>
   </nav>

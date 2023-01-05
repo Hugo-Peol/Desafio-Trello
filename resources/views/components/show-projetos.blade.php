@@ -27,8 +27,8 @@
         @method('DELETE')
         <button class="mt-3 btn btn-danger" >Deletar</button>
     </form>
-    <a href="{{ route('projetos.sprints.index', ['projeto' => $projeto]) }}">
-        <button class="btn btn-success mt-2" >Sprints</button>
+    <a href="{{ route('projetos.sprints.index', ['projeto' => $projeto, 'sprint' => $sprint]) }}">
+        <button class="btn btn-success mt-2" >Sprinaaaaaa</button>
     </a>
 
 </div>

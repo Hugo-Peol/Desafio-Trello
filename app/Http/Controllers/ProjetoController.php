@@ -64,9 +64,10 @@ class ProjetoController extends Controller
      */
     public function show(Projeto $projeto)
     {
+       $sprint = $projeto->sprint;
 
-
-        return view('projetos.show', $projeto )->with('projeto', $projeto);
+        return view('projetos.show', $projeto )
+        ->with('projeto', $projeto)->with('sprint', $sprint);
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ProjetoSprint;
 use Illuminate\Http\Request;
+use App\Models\Projeto;
 
 class ProjetoSprintController extends Controller
 {
@@ -12,10 +13,11 @@ class ProjetoSprintController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Projeto $projeto)
     {
         
-        return view('sprints.index')->with('projeto', $request);
+        
+        return view('projetos.sprints.index')->with('projeto', $projeto);
     }
 
     /**

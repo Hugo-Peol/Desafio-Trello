@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Sprint;
 use Illuminate\Http\Request;
+use App\Models\Projeto;
 
 class SprintController extends Controller
 {
@@ -46,7 +47,9 @@ class SprintController extends Controller
      */
     public function show(Sprint $sprint)
     {
-        //
+        return view('projetos.sprints.show', [
+            'sprint' => $sprint
+        ]);
     }
 
     /**
@@ -57,7 +60,10 @@ class SprintController extends Controller
      */
     public function edit(Sprint $sprint)
     {
-        //
+        return view('projetos.sprints.edit')
+        ->with([
+            'sprint' => $sprint
+        ]);
     }
 
     /**
@@ -69,7 +75,13 @@ class SprintController extends Controller
      */
     public function update(Request $request, Sprint $sprint)
     {
-        //
+
+
+
+        $projeto = Projeto::find(1)->get()[0];
+
+
+        return to_route('projetos.sprints.index', $projeto);
     }
 
     /**
@@ -80,6 +92,11 @@ class SprintController extends Controller
      */
     public function destroy(Sprint $sprint)
     {
-        //
+
+        $sprint->delete();
+
+        return view('projetos.sprints.show');
+
+        // return to_route('projetos.sprints.index')->with('mensagemSucesso', "Sprint '{$sprint->nome_do_sprint}' removida com sucesso!");
     }
 }

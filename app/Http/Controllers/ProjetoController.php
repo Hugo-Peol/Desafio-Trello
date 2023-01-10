@@ -19,10 +19,10 @@ class ProjetoController extends Controller
     {
         $projetos = Projeto::all();
         $mensagemSucesso = session('mensagemSucesso') ?? null;
-        
+
 
         return view('projetos.index')->with('projetos', $projetos)->with('mensagemSucesso', $mensagemSucesso);
-        
+
     }
 
     /**
@@ -37,7 +37,7 @@ class ProjetoController extends Controller
 
         $mensagemSucesso = session('mensagemSucesso');
         return view('projetos.create', [
-            'projeto' => $projeto,])->with('mensagemSucesso', $mensagemSucesso)            ;
+            'projeto' => $projeto])->with('mensagemSucesso', $mensagemSucesso)            ;
     }
 
     /**
@@ -80,7 +80,7 @@ class ProjetoController extends Controller
     {
             // dd($projeto->sprints); trás somente as sprints vinculadas, sem o projeto em si
             // dd($projeto->with('sprints')->get()); trás o projeto e todas as sprints vinculadasout
-            
+
         return view('projetos.edit')->with('projeto', $projeto);
     }
 
@@ -93,9 +93,9 @@ class ProjetoController extends Controller
      */
     public function update(ProjetoFormRequest $request, Projeto $projeto)
     {
-        
+
         $projeto->fill($request->all());
-       
+
         $projeto->save();
 
         return to_route('projetos.index')->with('mensagemSucesso', "Projeto '{$projeto->nome_projeto}' atualizado com sucesso!");
@@ -109,9 +109,9 @@ class ProjetoController extends Controller
      */
     public function destroy(Projeto $projeto)
     {
-  
+
         $projeto->delete();
-        
+
         return to_route('projetos.index')
             ->with('mensagemSucesso', "Projeto '{$projeto->nome_projeto}' removido com sucesso!");
     }

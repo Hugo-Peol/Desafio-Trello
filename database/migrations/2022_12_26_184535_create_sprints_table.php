@@ -18,7 +18,7 @@ return new class extends Migration
             $table->dateTime('data_inicio');
             $table->dateTime('data_fim');
             $table->string('nome_do_sprint', 100);
-            $table->tinyInteger('sprint_ativo')->comment('Eh pra ser um boolean');
+            $table->tinyInteger('sprint_ativo')->comment('Eh pra ser um boolean')->default(1);
             $table->timestamps();
         });
     }

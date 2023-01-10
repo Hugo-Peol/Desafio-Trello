@@ -35,16 +35,18 @@ Route::get('/home', function () {
 })->name('home')->middleware(Autenticador::class);
 
 Route::resource('/projetos', ProjetoController::class)->middleware(Autenticador::class);;
+Route::resource('/sprints', SprintController::class)->middleware(Autenticador::class);;
 
 
 
 
 Route::resource('projetos.sprints', ProjetoSprintController::class)
+
 ->middleware(Autenticador::class);;
 
 Route::resource('/tarefas', TarefaController::class)
-->except(['show'])->middleware(Autenticador::class);
+->middleware(Autenticador::class);
 
 
 // Route::resource('/projetos', SeriesController::class)
-//  ->except(['show']);
+//  ;

@@ -1,10 +1,12 @@
 <x-style title="Criar Sprints">
 
-    <x-form-criar-sprint>
+
+    {{-- não lembro pq botei action mas sei pra q serve --}}
+
+    <x-form-criar-sprint :projeto="$projeto" :sprint="$sprint" acao="{{route('projetos.sprints.store', ['projeto' => $projeto])}}" >
 
 
 
-    
     </x-form-criar-sprint>
 
 

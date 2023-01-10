@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ProjetoSprint;
 use Illuminate\Http\Request;
 use App\Models\Projeto;
+use App\Models\Sprint;
 
 class ProjetoSprintController extends Controller
 {
@@ -13,11 +14,23 @@ class ProjetoSprintController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Projeto $projeto)
+    public function index(Sprint $sprint, Projeto $projeto)
     {
-        
-        
-        return view('projetos.sprints.index')->with('projeto', $projeto);
+
+
+
+        $sprint =  Sprint::latest()->where('sprint_ativo', 1)->first();
+
+        $mensagemSucesso = session('mensagemSucesso') ?? null;
+
+
+        return view('projetos.sprints.index')->with('projeto', $projeto)
+        ->with('mensagemSucesso', $mensagemSucesso)
+        ->with('sprint', $sprint);
+
+
+
+
     }
 
     /**
@@ -25,9 +38,14 @@ class ProjetoSprintController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Projeto $projeto)
     {
-        //
+        // chego aqui através do formulário create(view)
+        // se não tiver formulário criado tem q ser tratado diferente
+
+        $sprint = new Sprint;
+
+        return view('projetos.sprints.create')->with('projeto', $projeto)->with('sprint', $sprint);
     }
 
     /**
@@ -36,21 +54,20 @@ class ProjetoSprintController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($projeto, Sprint $sprint,Request $request)
     {
-        
+
+
+
+        Sprint::create($request->all());
+
+
+
+
+        return to_route('projetos.sprints.index', $projeto)
+        ->with('mensagemSucesso', "Sprint '{$request->nome_do_sprint}' criada com sucesso!");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\ProjetoSprint  $projetoSprint
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ProjetoSprint $projetoSprint)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -58,9 +75,10 @@ class ProjetoSprintController extends Controller
      * @param  \App\Models\ProjetoSprint  $projetoSprint
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProjetoSprint $projetoSprint)
+    public function edit(Projeto $projeto, Sprint $sprint)
     {
-        //
+
+
     }
 
     /**
@@ -70,9 +88,11 @@ class ProjetoSprintController extends Controller
      * @param  \App\Models\ProjetoSprint  $projetoSprint
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProjetoSprint $projetoSprint)
+    public function update(Request $request, Projeto $projeto, Sprint $sprint)
     {
-        //
+
+      //
+
     }
 
     /**
@@ -83,6 +103,29 @@ class ProjetoSprintController extends Controller
      */
     public function destroy(ProjetoSprint $projetoSprint)
     {
-        //
+
+
+    }
+
+    public function moverSprint(Request $request, $projeto){
+         // --- chego aqui através do botal
+        // preciso selecionar a ultima sprint
+
+        $sprintAntiga =  Sprint::latest()->where('sprint_ativo', 1)->first();
+
+        // e colocar como inativa
+
+        $sprintAntiga->update(array('sprint_ativo' => 0));
+
+        // apos isso, criar nova sprint com os dados passados no request
+        Sprint::create($request->all());
+
+
+
+        return to_route('projetos.sprints.index', $projeto)
+        ->with('mensagemSucesso', "Sprint '{$request->nome_do_sprint}' criada com sucesso!");
+        // pegar as tarefas da sprint anterior e passar para a nova
+        // $tarefas->replicate(); $novaTarefa->save();
+        // devolver a sprint atual
     }
 }

@@ -9,6 +9,8 @@ class Sprint extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function projetos()
     {
         return $this->belongsToMany(Projeto::class, 'projetos_tem_sprints');
@@ -17,5 +19,10 @@ class Sprint extends Model
     public function tarefas()
     {
         return $this->hasMany(Tarefa::class);
+    }
+
+    public function projeto()
+    {
+        return $this->belongsTo(Projeto::class);
     }
 }

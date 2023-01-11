@@ -54,12 +54,13 @@ class ProjetoSprintController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($projeto, Sprint $sprint,Request $request)
+    public function store($projeto, Request $request)
     {
 
 
+        $projeto = Projeto::find($projeto);
 
-        Sprint::create($request->all());
+        $sprint = $projeto->sprints()->create($request->all());
 
 
 

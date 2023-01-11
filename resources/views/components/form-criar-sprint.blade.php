@@ -3,6 +3,8 @@
 @isset($editar)
   @method('PUT')
 @endisset
+
+    <input type="hidden" name="projetos_id" value="{{$projeto->id}}">
     <div class="container mt-3 col-md-8">
         <div class="form-group col-10">
             {{-- campo para nome da sprint --}}

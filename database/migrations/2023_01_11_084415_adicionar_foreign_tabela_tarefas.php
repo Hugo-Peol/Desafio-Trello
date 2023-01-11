@@ -18,8 +18,8 @@ return new class extends Migration
 
             //criando foreign
 
-            $table->foreign('usuarios_id')->references('id')->on('users');
-            $table->foreign('sprints_id')->references('id')->on('sprints');
+            $table->foreign('usuario_id')->references('id')->on('users');
+            $table->foreign('sprint_id')->references('id')->on('sprints');
 
         });
     }

@@ -13,12 +13,12 @@ class Projeto extends Model
 
     public function sprints()
     {
-        return $this->belongsToMany(Sprint::class, 'projetos_sprints');
+        return $this->belongsToMany(Sprint::class, 'projetos_sprints', 'projeto_id');
     }
 
 
     //Projeto tem um relacionamento com sprints (será?)
-    public function TemSprints()
+    public function temSprints()
     {
         return $this->hasMany(Sprint::class, 'projetos_sprints');
     }

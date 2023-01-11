@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sprints', function (Blueprint $table) {
-            $table->id();
-            $table->dateTime('data_inicio');
-            $table->dateTime('data_fim');
-            $table->string('nome_do_sprint', 100);
-            $table->tinyInteger('sprint_ativo')->comment('Eh pra ser um boolean')->default(1);
-            $table->timestamps();
+        Schema::table('projetos_usuarios', function (Blueprint $table) {
+
+
+            //criando foreign
+            $table->foreign('projeto_id')->references('id')->on('projetos');
+            $table->foreign('usuario_id')->references('id')->on('users');
+
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sprints');
+        //
     }
 };

@@ -10,6 +10,6 @@ use Illuminate\Database\Eloquent\Model;
 class ProjetoSprint extends Model
 {
     use HasFactory;
-    protected $table = 'projetos_tem_sprints';
-    
+    protected $table = 'projetos_sprints';
+
 }

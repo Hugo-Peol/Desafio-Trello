@@ -1,0 +1,68 @@
+Verb	/projetos	URI						                Action				Route Name
+
+GET			        /projetos						        index				projetos.index
+GET			        /projetos/create				        create				projetos.create
+POST		        /projetos						        store				projetos.store
+GET			        /projetos/{projeto}				        show				projetos.show
+GET			        /projetos/{projeto}/edit			    edit    			projetos.edit
+PUT/PATCH	        /projetos/{projeto}				        update				projetos.update
+DELETE		        /projetos/{projeto}				        destroy				projetos.destroy
+
+
+Verb	/sprints	URI						                Action				Route Name
+
+GET			        /projetos/{projeto}/sprints			    index				projetos.sprints.index
+GET			        /projetos/{projeto}/sprints/create		create				projetos.sprints.create
+POST			    /projetos/{projeto}/sprints			    store				projetos.sprints.store
+GET			        /sprints/{sprint}				        show				sprints.show
+GET			        /sprints/{sprint}/edit			        edit				sprints.edit
+PUT/PATCH		    /sprints/{sprint}				        update				sprints.update
+DELETE			    /sprints/{sprint}				        destroy				sprints.destroy
+
+
+Verb	/tarefas	URI						                Action				Route Name
+
+GET			        /sprints/{sprint}/tarefas			    index				sprints.tarefas.index
+GET			        /sprints/{sprint}/tarefas/create		create				sprints.tarefas.create
+POST			    /sprints/{sprint}/tarefas			    store				sprints.tarefas.store
+GET			        /tarefas/{tarefa}				        show				tarefas.show
+GET			        /tarefas/{tarefa}/edit		        	edit				tarefas.edit
+PUT/PATCH		    /tarefas/{tarefa}			        	update				tarefas.update
+DELETE			    /tarefas/{tarefa}			        	destroy				tarefas.destroy
+
+
+GET|HEAD          projetos ........................................................................................ projetos.index › ProjetoController@index
+  POST            projetos ........................................................................................ projetos.store › ProjetoController@store
+  GET|HEAD        projetos/create ............................................................................... projetos.create › ProjetoController@create
+  GET|HEAD        projetos/{projeto} ................................................................................ projetos.show › ProjetoController@show
+  PUT|PATCH       projetos/{projeto} ............................................................................ projetos.update › ProjetoController@update
+  DELETE          projetos/{projeto} .......................................................................... projetos.destroy › ProjetoController@destroy
+  GET|HEAD        projetos/{projeto}/edit ........................................................................... projetos.edit › ProjetoController@edit
+
+  // sprints -> Quando há relacionamento tem q aninhar as rotas
+
+  GET|HEAD        projetos/{projeto}/sprints ........................................................ projetos.sprints.index › ProjetoSprintController@index
+  POST            projetos/{projeto}/sprints ........................................................ projetos.sprints.store › ProjetoSprintController@store
+  GET|HEAD        projetos/{projeto}/sprints/create ............................................... projetos.sprints.create › ProjetoSprintController@create
+  GET|HEAD        projetos/{projeto}/sprints/{sprint} ................................................. projetos.sprints.show › ProjetoSprintController@show
+  PUT|PATCH       projetos/{projeto}/sprints/{sprint} ............................................. projetos.sprints.update › ProjetoSprintController@update
+  DELETE          projetos/{projeto}/sprints/{sprint} ........................................... projetos.sprints.destroy › ProjetoSprintController@destroy
+  GET|HEAD        projetos/{projeto}/sprints/{sprint}/edit ............................................ projetos.sprints.edit › ProjetoSprintController@edit
+
+  GET|HEAD        sprints ........................................................................................... sprints.index › SprintController@index
+  POST            sprints ........................................................................................... sprints.store › SprintController@store
+  GET|HEAD        sprints/create .................................................................................. sprints.create › SprintController@create
+  GET|HEAD        sprints/{sprint} .................................................................................... sprints.show › SprintController@show
+  PUT|PATCH       sprints/{sprint} ................................................................................ sprints.update › SprintController@update
+  DELETE          sprints/{sprint} .............................................................................. sprints.destroy › SprintController@destroy
+  GET|HEAD        sprints/{sprint}/edit ............................................................................... sprints.edit › SprintController@edit
+
+  // tarefas {sprint} aqui recebe sprints mas n precisa de projetos -> me perdi nas rotas arrumar depois
+
+  GET|HEAD        tarefas .......................................................................................... tarefas.index › TarefaController@index
+  POST            tarefas ........................................................................................... tarefas.store › TarefaController@store
+  GET|HEAD        tarefas/create .................................................................................. tarefas.create › TarefaController@create
+  GET|HEAD        tarefas/{tarefa} .......................não vai ter pq a index da sprints já mostra ................. tarefas.show › TarefaController@show
+  PUT|PATCH       tarefas/{tarefa} ................................................................................ tarefas.update › TarefaController@update
+  DELETE          tarefas/{tarefa} .............................................................................. tarefas.destroy › TarefaController@destroy
+  GET|HEAD        tarefas/{tarefa}/edit ............................................................................... tarefas.edit › TarefaController@edit

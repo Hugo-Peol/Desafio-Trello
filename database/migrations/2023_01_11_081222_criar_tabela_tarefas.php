@@ -19,16 +19,18 @@ return new class extends Migration
             $table->string('nome', 45);
             $table->string('descricao', 45);
             $table->unsignedBigInteger('sprints_id');
-            $table->unsignedBigInteger('status_tarefa_id');
-            $table->unsignedBigInteger('projetos_usuarios_id');
-            $table->unsignedBigInteger('numero_tarefa');
+            $table->unsignedBigInteger('usuarios_id');
+            // $table->unsignedBigInteger('status_tarefa_id');
+            // $table->unsignedBigInteger('projetos_usuarios_id');
+            $table->integer('numero_tarefa');
             $table->string('titulo_tarefa', 200);
             $table->string('numero_sprint', 45);
             $table->string('comentario_tarefa', 200);
             $table->timestamps();
 
-            
-            // $table->primary(['id', 'sprints_id', 'status_tarefa_id', 'projetos_usuarios_id']);
+
+
+
         });
     }
 
@@ -39,6 +41,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tarefas');
+        Schema::dropIfExists('projetos');
+
     }
 };

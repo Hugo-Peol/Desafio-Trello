@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('status_sub_tarefa', function (Blueprint $table) {
+        Schema::create('sprints', function (Blueprint $table) {
             $table->id();
-            $table->string('status', 45);
+            $table->dateTime('data_inicio');
+            $table->dateTime('data_fim');
+
+            $table->string('nome_do_sprint', 100);
+            $table->tinyInteger('sprint_ativo')->comment('Eh pra ser um boolean')->default(1);
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status_sub_tarefa');
+        Schema::dropIfExists('sprints');
     }
 };

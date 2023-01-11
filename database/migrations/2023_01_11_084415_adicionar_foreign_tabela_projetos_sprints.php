@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('projeto_sprints', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('projetos_sprints', function (Blueprint $table) {
+
+
+            //criando foreign
+            $table->foreign('projeto_id')->references('id')->on('projetos');
+            $table->foreign('sprint_id')->references('id')->on('sprints');
+
         });
     }
 
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projeto_sprints');
+        //
     }
 };

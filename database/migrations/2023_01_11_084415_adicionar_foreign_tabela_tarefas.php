@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('status_tarefa', function (Blueprint $table) {
-            $table->id();
-            $table->string('status', 60);
-            $table->timestamps();
+        Schema::table('tarefas', function (Blueprint $table) {
+
+
+            //criando foreign
+
+            $table->foreign('usuarios_id')->references('id')->on('users');
+            $table->foreign('sprints_id')->references('id')->on('sprints');
+
         });
     }
 
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status_tarefa');
+        //
     }
 };

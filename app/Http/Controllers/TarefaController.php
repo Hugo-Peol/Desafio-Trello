@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
+use App\Models\Sprint;
 
 class TarefaController extends Controller
 {
@@ -12,9 +13,10 @@ class TarefaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Sprint $sprint, Tarefa $tarefa)
     {
-        return view('tarefas.index');
+
+        return view('tarefas.index', ['sprint' => $sprint, 'tarefa' => $tarefa]);
     }
 
     /**

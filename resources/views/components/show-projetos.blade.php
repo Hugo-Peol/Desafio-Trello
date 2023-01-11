@@ -1,5 +1,6 @@
 <div class="container mt-5">
 
+
     <div class="row mt-4">
         <div class="col-md-2">Nome do projeto:</div>
         <div class="col-md-2">{{$projeto->nome_projeto}}</div>

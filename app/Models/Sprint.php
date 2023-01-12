@@ -13,7 +13,7 @@ class Sprint extends Model
 
     public function projetos()
     {
-        return $this->belongsToMany(Projeto::class, 'projetos_sprints', 'projettosakok');
+        return $this->belongsToMany(Projeto::class, 'projetos_sprints');
     }
 
     public function tarefas()
@@ -21,8 +21,5 @@ class Sprint extends Model
         return $this->hasMany(Tarefa::class);
     }
 
-    public function projeto()
-    {
-        return $this->belongsTo(Projeto::class);
-    }
+
 }

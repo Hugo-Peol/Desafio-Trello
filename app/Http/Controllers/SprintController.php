@@ -58,11 +58,10 @@ class SprintController extends Controller
      * @param  \App\Models\Sprint  $sprint
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sprint $sprint, Projeto $projeto)
+    public function edit(Sprint $sprint)
     {
         return view('projetos.sprints.edit')
         ->with([
-            'projeto' => $projeto,
             'sprint' => $sprint
         ]);
     }

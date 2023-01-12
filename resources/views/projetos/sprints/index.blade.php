@@ -1,5 +1,5 @@
-<x-style title="Sprint Nº {{$numSprint}}" >
-
+<x-style title="Sprints" >
+<a class="btn btn-info" href="{{ route('sprints.show', ['sprint' => $sprint]) }}">Ver Projeto {{$projeto->nome_projeto}} Nº {{$projeto->id}} Sprint Nº {{$numSprint}}</a>
     {{-- lista select --}}
 
 @isset($mensagemSucesso)
@@ -9,7 +9,6 @@
 @endisset
 
 
-<h5 class="card-title"><a href="{{route('tarefas.index')}}" class="text-title">tarefa</a></h5>
 
 
 
@@ -26,12 +25,15 @@
             Criar nova sprint
             </a>
 
-            <a href="{{ route('sprints.edit', ['projeto' => $projeto, 'sprint' => $sprint]) }}" class="btn btn-primary">
+            {{-- <a href="{{ route('sprints.edit', ['projeto' => $projeto, 'sprint' => $sprint]) }}" class="btn btn-primary">
                 Editar Sprint
             </a>
             <button
-                onclick="return confirm('Ao criar nova Sprint, a atual será inativada e suas tarefas transferida para nova, deseja continuar?')" type="submit" class="btn btn-danger">Deletar Sprint
-            </button>
+                onclick="return confirm(
+                    'Ao criar nova Sprint, a atual será inativada e suas tarefas transferida para nova, deseja continuar?'
+                    )"
+                    type="submit" class="btn btn-danger">Deletar Sprint
+            </button> --}}
         </div>
     </form>
 </div>

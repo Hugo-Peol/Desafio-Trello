@@ -3,8 +3,10 @@
 @isset($editar)
   @method('PUT')
 @endisset
-
-    <input type="hidden" name="projetos_id" value="{{$projeto->id}}">
+    {{-- o "?" é Optional properties, recurso que já existia no laravel e que entrou no php 8 como null safe operator --}}
+    @isset($sprint->projetos[0]?->id)
+        <input type="hidden" name="projetos_id" value="{{$sprint->projetos[0]->id}}">
+    @endisset
     <div class="container mt-3 col-md-8">
         <div class="form-group col-10">
             {{-- campo para nome da sprint --}}
@@ -13,9 +15,11 @@
                 <input value="{{ old('nome_projeto', $sprint->nome_do_sprint) }}"  placeholder="Nome da sprint"type="text"  name="nome_do_sprint" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
                 {{-- <input value="{{ old('nome_sprint', $sprint->nome_sprint) }}"  placeholder="Nome da sprint"type="text"  name="nome_sprint" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" /> --}}
               </div>
-            {{-- fim da campo --}}
+            {{-- fim do campo --}}
 
-            {{-- fim da campo --}}
+
+
+
             {{-- ARRUMAR!! -> NÃO TA PASSANDO O VALUE PRO CAMPO --}}
             <div class="input-group mb-3">
                 <span class="input-group-text" id="Descricaosprint" >Data de início</span>
@@ -40,7 +44,6 @@
 
 
 </form>
-{{--  Botão enviar --}}
 
 
 

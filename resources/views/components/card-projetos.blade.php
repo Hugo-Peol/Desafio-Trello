@@ -22,7 +22,7 @@
                     <!-- project title-->
                     <h4 class="mt-0">
                         <a href="{{route('projetos.show', $projeto->id)}}" class="text-title">{{$projeto->nome_projeto}}</a>
-                      
+
                     </h4>
                     <div class="badge bg-success">-Status-</div>
 
@@ -45,7 +45,7 @@
                         </span>
                     </p>
                     <div id="tooltip-container">
-                        
+
                         </a>
                         <a href="javascript:void(0);" class="d-inline-block text-muted fw-bold ms-2">
                             +7 more

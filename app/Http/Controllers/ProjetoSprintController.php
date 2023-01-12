@@ -6,6 +6,7 @@ use App\Models\ProjetoSprint;
 use Illuminate\Http\Request;
 use App\Models\Projeto;
 use App\Models\Sprint;
+use PhpParser\Node\Expr\Cast\Object_;
 
 class ProjetoSprintController extends Controller
 {
@@ -14,9 +15,8 @@ class ProjetoSprintController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Sprint $sprint, Projeto $projeto)
+    public function index(Sprint $sprint, Projeto $projeto, Request $request)
     {
-
 
 
         $sprint =  Sprint::latest()->where('sprint_ativo', 1)->first();

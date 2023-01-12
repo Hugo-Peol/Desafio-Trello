@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Projeto;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProjetoFormRequest;
+use App\Models\Sprint;
 
 
 
@@ -34,10 +35,18 @@ class ProjetoController extends Controller
     {
         $projeto = new Projeto;
 
+        // GAMBIARRA
+        $haveSprint = Sprint::first();
+
+
+
+
+
+
 
         $mensagemSucesso = session('mensagemSucesso');
         return view('projetos.create', [
-            'projeto' => $projeto])->with('mensagemSucesso', $mensagemSucesso)            ;
+            'projeto' => $projeto])->with('mensagemSucesso', $mensagemSucesso);
     }
 
     /**
@@ -65,9 +74,11 @@ class ProjetoController extends Controller
     public function show(Projeto $projeto)
     {
        $sprint = $projeto->sprint;
+        // GAMBIARRA
+        $haveSprint = Sprint::first();
 
         return view('projetos.show', $projeto )
-        ->with('projeto', $projeto)->with('sprint', $sprint);
+        ->with('projeto', $projeto)->with('sprint', $sprint)->with('haveSprint', $haveSprint);
     }
 
     /**

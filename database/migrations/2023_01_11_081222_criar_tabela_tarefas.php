@@ -18,8 +18,8 @@ return new class extends Migration
             $table->id();
             $table->string('nome', 45);
             $table->string('descricao', 45);
-            $table->unsignedBigInteger('sprints_id');
-            $table->unsignedBigInteger('usuarios_id');
+            $table->unsignedBigInteger('sprint_id');
+            $table->unsignedBigInteger('usuario_id');
             // $table->unsignedBigInteger('status_tarefa_id');
             // $table->unsignedBigInteger('projetos_usuarios_id');
             $table->integer('numero_tarefa');

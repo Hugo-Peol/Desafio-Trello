@@ -28,8 +28,10 @@
         @method('DELETE')
         <button class="mt-3 btn btn-danger" >Deletar</button>
     </form>
-    <a href="{{ route('projetos.sprints.index', ['projeto' => $projeto, 'sprint' => $sprint]) }}">
-        <button class="btn btn-success mt-2" >Sprint</button>
+    {{-- gambiarra estilosa --}}
+    <a href="{{ isset($haveSprint) ? route('projetos.sprints.index',['projeto' => $projeto, 'sprint' => $sprint]) : route('projetos.sprints.create', ['projeto' => $projeto, 'sprint' => $sprint]) }}" >
+        <button class="btn btn-success mt-2"    @if(isset($haveSprint))
+        onclick="return confirm('Ao criar novo projeto, você deve criar uma sprint também')"
+        @endif>Sprint</button>
     </a>
-
 </div>

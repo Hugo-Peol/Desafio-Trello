@@ -1,0 +1,18 @@
+BUGS
+
+Ao criar conta ele já entra em sessão e manda direto pro projeto, deve mandar para a sessão de loguing
+Ao tentar logar com uma senha inexistente não passa nenhuma msg, não passa também na hora de redirecionar (mas talvez n precisa)
+Alguns acessos ainda podem ser feitos sem login
+A home não puxa o relatório(se puxar sprints também vai bugar)
+Arrumar nav que possui as sprints
+Consigo acessar a rota que não tem sprints
+
+
+O que falta fazer 12/01/23
+
+- Faker para o banco
+- Validações
+- Views (mensagens, tarefas, subtarefas)
+- Banco (tarefas, subtarefas)
+- Resolver regra para nova sprints (em produção) ok
+- Arrumar botões da view ProjetoSprints

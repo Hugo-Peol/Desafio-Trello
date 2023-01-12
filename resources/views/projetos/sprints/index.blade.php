@@ -1,4 +1,4 @@
-<x-style title="Sprint Nº {{$sprint->id}}" >
+<x-style title="Sprint Nº {{$numSprint}}" >
 
     {{-- lista select --}}
 

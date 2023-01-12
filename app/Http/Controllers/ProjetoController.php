@@ -74,8 +74,9 @@ class ProjetoController extends Controller
     public function show(Projeto $projeto)
     {
        $sprint = $projeto->sprint;
-        // GAMBIARRA
-        $haveSprint = Sprint::first();
+        // ARRUMAR!!TEM QUE PUXAR A SPRINT_ID
+        $haveSprint =  $projeto->sprints()->first();
+
 
         return view('projetos.show', $projeto )
         ->with('projeto', $projeto)->with('sprint', $sprint)->with('haveSprint', $haveSprint);

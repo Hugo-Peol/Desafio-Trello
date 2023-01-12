@@ -18,15 +18,20 @@ class ProjetoSprintController extends Controller
     public function index(Sprint $sprint, Projeto $projeto, Request $request)
     {
 
-
+        // pega a ultima sprint ativa e tetorna (antiga forma de mostrar o numero da sprint)
         $sprint =  Sprint::latest()->where('sprint_ativo', 1)->first();
 
+        //pega o numero de sprints e mostra em qual que está (não precisa ser ativo pq conta quantas
+        // tem e o número da sprint é sempre a quantidade existente, visto que não se apaga sprint e sim inativa)
+        $numSprint =  $projeto->sprints()->count();
+
+        // passa mensagem sucesso para a view, não pode ser null se não quebra a página
         $mensagemSucesso = session('mensagemSucesso') ?? null;
 
 
         return view('projetos.sprints.index')->with('projeto', $projeto)
         ->with('mensagemSucesso', $mensagemSucesso)
-        ->with('sprint', $sprint);
+        ->with('sprint', $sprint)->with('numSprint', $numSprint);
 
 
 
@@ -57,9 +62,9 @@ class ProjetoSprintController extends Controller
     public function store($projeto, Request $request)
     {
 
-
+        // pega o projeto da view
         $projeto = Projeto::find($projeto);
-
+        // cria a sprint usando o relacionamento sprints()
         $sprint = $projeto->sprints()->create($request->all());
 
 

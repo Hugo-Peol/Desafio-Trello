@@ -8,7 +8,7 @@ use App\Http\Controllers\TarefaController;
 use App\Http\Controllers\ProjetoSprintController;
 use App\Http\Middleware\Autenticador;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\SprintTarefaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +46,6 @@ Route::resource('projetos.sprints', ProjetoSprintController::class)
 
 Route::resource('/tarefas', TarefaController::class)
 ->middleware(Autenticador::class);
+Route::resource('projetos.sprints.tarefas', SprintTarefaController::class)
+->middleware(Autenticador::class);
 
-
-// Route::resource('/projetos', SeriesController::class)
-//  ;

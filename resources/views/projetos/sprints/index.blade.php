@@ -8,9 +8,9 @@
 </div>
 @endisset
 
+<a href="{{route('projetos.sprints.tarefas.create', ['projeto' => $projeto, 'sprint' => $sprint])}}" class="btn btn-secondary"  >Criar tarefa</a>
 
-
-
+{{-- {{dd($sprint)}} --}}
 
 
 </div>

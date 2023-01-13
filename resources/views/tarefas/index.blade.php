@@ -22,7 +22,7 @@
         {{-- <div class="col-md-1"><a href="http://">Editar</a></div> --}}
       </div>
 
-    <a href={{ route('tarefas.create', ['sprint' => $sprint, 'tarefa' => $tarefa]) }}><button class="mt-3 btn btn-danger">
+    <a href={{ route('tarefas.edit', ['sprint' => $sprint, 'tarefa' => $tarefa]) }}><button class="mt-3 btn btn-danger">
         Editar
     </button></a>
     {{-- <form action="{{ route('projetos.destroy', ['projeto' => $projeto]) }}" method="post">

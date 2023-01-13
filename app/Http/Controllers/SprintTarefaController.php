@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tarefa;
+use App\Models\SprintTarefa;
 use Illuminate\Http\Request;
 use App\Models\Sprint;
 use App\Models\Projeto;
+use App\Models\Tarefa;
 
-class TarefaController extends Controller
+class SprintTarefaController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Projeto $projeto, Tarefa $tarefa)
+    public function index()
     {
-
-        return view('tarefas.index', ['projeto' => $projeto, 'tarefa' => $tarefa]);
+        //
     }
 
     /**
@@ -25,9 +25,14 @@ class TarefaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Sprint $sprint)
+    public function create(Projeto $projeto, Sprint $sprint)
     {
-        //
+
+        // dd($sprint);
+
+        // $sprint = $request->sprint;
+        $tarefa = new Tarefa;
+        return view('tarefas.create', ['tarefa' => $tarefa, 'sprint' => $sprint, 'projeto' => $projeto]);
     }
 
     /**
@@ -38,16 +43,16 @@ class TarefaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tarefa  $tarefa
+     * @param  \App\Models\SprintTarefa  $sprintTarefa
      * @return \Illuminate\Http\Response
      */
-    public function show(Tarefa $tarefa)
+    public function show(SprintTarefa $sprintTarefa)
     {
         //
     }
@@ -55,10 +60,10 @@ class TarefaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Tarefa  $tarefa
+     * @param  \App\Models\SprintTarefa  $sprintTarefa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tarefa $tarefa)
+    public function edit(SprintTarefa $sprintTarefa)
     {
         //
     }
@@ -67,10 +72,10 @@ class TarefaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tarefa  $tarefa
+     * @param  \App\Models\SprintTarefa  $sprintTarefa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tarefa $tarefa)
+    public function update(Request $request, SprintTarefa $sprintTarefa)
     {
         //
     }
@@ -78,10 +83,10 @@ class TarefaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tarefa  $tarefa
+     * @param  \App\Models\SprintTarefa  $sprintTarefa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tarefa $tarefa)
+    public function destroy(SprintTarefa $sprintTarefa)
     {
         //
     }

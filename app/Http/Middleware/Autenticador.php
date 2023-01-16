@@ -18,10 +18,11 @@ class Autenticador
      */
     public function handle(Request $request, Closure $next)
     {
+        //posso retornar  uma mesnagem para logar e redireciona para logar
         if (!Auth::check()) {
             throw new AuthenticationException();
         }
-        
+
         return $next($request);
     }
 }

@@ -9,6 +9,8 @@ class Tarefa extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function tarefas()
     {
         return $this->belongsTo(Sprint::class);

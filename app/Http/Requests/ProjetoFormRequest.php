@@ -29,8 +29,6 @@ class ProjetoFormRequest extends FormRequest
             'descricao' => ['required', 'string', 'min:1'],
             'data_inicio' => ['required', 'date'],
             'templates_projeto' => ['required', 'string',]
-
-            
         ];
     }
 }

@@ -1,6 +1,5 @@
 <x-style title="Projetos" :mensagem-sucesso="$mensagemSucesso">
 
-
 {{-- variavel com nome do projeto --}}
 
 <div class="container mt-5">
@@ -23,7 +22,7 @@
 
             </x-card-projetos>
         @endforeach
-    </div>    
+    </div>
 </div>
 
 

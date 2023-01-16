@@ -41,8 +41,26 @@ class SprintTarefaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $sprint)
     {
+          // pega a sprint
+
+
+          $sprint = Sprint::find($sprint);
+
+          // cria a tarefa usando o relacionamento sprints()
+          $tarefa = $sprint->tarefas()->create($request->all());
+
+         // Projeto e sprint da tarefa
+
+         $projeto = $sprint->projetos[0];
+
+
+
+          return redirect()->route('projetos.sprints.index', [
+            'projeto' => $projeto
+
+          ])->with('mensagemSucesso', "Tarefa criada com sucesso!");
 
     }
 

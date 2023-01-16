@@ -21,5 +21,10 @@ class Sprint extends Model
         return $this->hasMany(Tarefa::class);
     }
 
+    public function sprintAtivo()
+    {
+        return Sprint::where('sprint_ativo', 1)->get();
+    }
+
 
 }

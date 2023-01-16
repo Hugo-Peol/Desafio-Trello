@@ -34,18 +34,30 @@ Route::get('/home', function () {
     return view('home');
 })->name('home')->middleware(Autenticador::class);
 
-Route::resource('/projetos', ProjetoController::class)->middleware(Autenticador::class);;
-Route::resource('/sprints', SprintController::class)->middleware(Autenticador::class);;
 
+//PROJETOS
 
-
-
-Route::resource('projetos.sprints', ProjetoSprintController::class)
-
+Route::resource('/projetos', ProjetoController::class)
 ->middleware(Autenticador::class);;
 
+
+//SPRINTS
+Route::resource('/sprints', SprintController::class)
+->middleware(Autenticador::class);
+
+Route::put('/sprints/mover/{id}', [SprintController::class, 'mover'])->name('sprints.mover');
+
+//TAREFAS
 Route::resource('/tarefas', TarefaController::class)
 ->middleware(Autenticador::class);
+// Route::resource('/tarefas', TarefaController::class)
+// ->middleware(Autenticador::class);
+
+//ANINHADAS
+
+Route::resource('projetos.sprints', ProjetoSprintController::class)
+->middleware(Autenticador::class);
+
 Route::resource('projetos.sprints.tarefas', SprintTarefaController::class)
 ->middleware(Autenticador::class);
 

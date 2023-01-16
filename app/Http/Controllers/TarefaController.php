@@ -17,7 +17,10 @@ class TarefaController extends Controller
     public function index(Projeto $projeto, Tarefa $tarefa)
     {
 
-        return view('tarefas.index', ['projeto' => $projeto, 'tarefa' => $tarefa]);
+        return view('tarefas.index', [
+            'projeto' => $projeto,
+            'tarefa' => $tarefa
+        ]);
     }
 
     /**

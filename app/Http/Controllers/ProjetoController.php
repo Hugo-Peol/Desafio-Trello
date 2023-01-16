@@ -35,18 +35,15 @@ class ProjetoController extends Controller
     {
         $projeto = new Projeto;
 
-        // GAMBIARRA
+        // Débito técnico
         $haveSprint = Sprint::first();
 
-
-
-
-
-
-
         $mensagemSucesso = session('mensagemSucesso');
-        return view('projetos.create', [
-            'projeto' => $projeto])->with('mensagemSucesso', $mensagemSucesso);
+        return view('projetos.create',
+        [
+            'projeto' => $projeto
+              ])
+            ->with('mensagemSucesso', $mensagemSucesso);
     }
 
     /**
@@ -57,8 +54,6 @@ class ProjetoController extends Controller
      */
     public function store(ProjetoFormRequest $request)
     {
-
-
         Projeto::create($request->all());
 
         return to_route('projetos.index')

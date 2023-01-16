@@ -68,9 +68,6 @@ class ProjetoSprintController extends Controller
         // cria a sprint usando o relacionamento sprints()
         $sprint = $projeto->sprints()->create($request->all());
 
-
-
-
         return to_route('projetos.sprints.index', $projeto)
         ->with('mensagemSucesso', "Sprint '{$request->nome_do_sprint}' criada com sucesso!");
     }
@@ -84,8 +81,7 @@ class ProjetoSprintController extends Controller
      */
     public function edit(Projeto $projeto, Sprint $sprint)
     {
-
-
+        //
     }
 
     /**
@@ -110,29 +106,8 @@ class ProjetoSprintController extends Controller
      */
     public function destroy(ProjetoSprint $projetoSprint)
     {
-
-
+        //
     }
 
-    public function moverSprint(Request $request, $projeto){
-         // --- chego aqui através do botal
-        // preciso selecionar a ultima sprint
 
-        $sprintAntiga =  Sprint::latest()->where('sprint_ativo', 1)->first();
-
-        // e colocar como inativa
-
-        $sprintAntiga->update(array('sprint_ativo' => 0));
-
-        // apos isso, criar nova sprint com os dados passados no request
-        Sprint::create($request->all());
-
-
-
-        return to_route('projetos.sprints.index', $projeto)
-        ->with('mensagemSucesso', "Sprint '{$request->nome_do_sprint}' criada com sucesso!");
-        // pegar as tarefas da sprint anterior e passar para a nova
-        // $tarefas->replicate(); $novaTarefa->save();
-        // devolver a sprint atual
-    }
 }

@@ -69,7 +69,7 @@ class ProjetoController extends Controller
     public function show(Projeto $projeto)
     {
        $sprint = $projeto->sprint;
-        // ARRUMAR!!TEM QUE PUXAR A SPRINT_ID
+
         $haveSprint =  $projeto->sprints()->first();
 
 

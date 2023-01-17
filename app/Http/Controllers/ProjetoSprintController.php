@@ -10,11 +10,7 @@ use App\Models\Sprint;
 
 class ProjetoSprintController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Sprint $sprint, Projeto $projeto, Request $request)
     {
 
@@ -34,16 +30,9 @@ class ProjetoSprintController extends Controller
         ->with('mensagemSucesso', $mensagemSucesso)
         ->with('sprint', $sprint)->with('numSprint', $numSprint);
 
-
-
-
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create(Projeto $projeto)
     {
         // chego aqui através do formulário create(view)
@@ -54,12 +43,7 @@ class ProjetoSprintController extends Controller
         return view('projetos.sprints.create')->with('projeto', $projeto)->with('sprint', $sprint);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store($projeto, Request $request)
     {
 
@@ -72,42 +56,42 @@ class ProjetoSprintController extends Controller
         ->with('mensagemSucesso', "Sprint '{$request->nome_do_sprint}' criada com sucesso!");
     }
 
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\ProjetoSprint  $projetoSprint
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Projeto $projeto, Sprint $sprint)
+    public function mover( Projeto $projeto, Sprint $sprint)
     {
-        //
+        // Salva os dados na sessão para passar para a próxima função
+        session(['sprint' => $sprint, 'projetos' => $projeto]);
+
+
+        return view('projetos.sprints.mover');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ProjetoSprint  $projetoSprint
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Projeto $projeto, Sprint $sprint)
+    public function moverSprint(Request $request, Projeto $projeto, Sprint $sprint)
     {
 
-      //
+        $sprint_antiga = session('sprint');
 
+        // Seta o campo sprint_ativo como 0
+        $sprint_antiga->sprint_ativo = 0;
+
+        //Salva a alteração no banco
+        $sprint_antiga->save();
+
+        // Validação e criação de nova sprint
+        $sprint = new Sprint();
+        $sprint->data_inicio = $request->data_inicio;
+        $sprint->nome_do_sprint = $request->nome_do_sprint;
+        $sprint->data_fim = $request->data_fim;
+        $sprint->save();
+
+        // Adicionando a sprint ao projeto
+        $projeto = Projeto::find($request->projeto_id);
+
+        // Relacionando ao projeto
+        $projeto->sprints()->attach($sprint);
+
+        return redirect()->route('projetos.sprints.index', [
+            'projeto' => $projeto,
+            'sprint' => $sprint
+        ])->with('mensagemSucesso', 'Sprint criada e relacionada com sucesso ao projeto!');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\ProjetoSprint  $projetoSprint
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ProjetoSprint $projetoSprint)
-    {
-        //
-    }
-
-
 }

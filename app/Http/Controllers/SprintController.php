@@ -8,43 +8,23 @@ use App\Models\Projeto;
 
 class SprintController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         return view('sprints.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('sprints.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Sprint  $sprint
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Sprint $sprint)
     {
         return view('projetos.sprints.show', [
@@ -66,17 +46,9 @@ class SprintController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Sprint  $sprint
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Sprint $sprint)
     {
-
-
 
         $projeto = Projeto::find(1)->get()[0];
         $sprint->fill($request->all());

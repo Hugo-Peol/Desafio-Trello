@@ -45,7 +45,7 @@ Route::resource('/projetos', ProjetoController::class)
 Route::resource('/sprints', SprintController::class)
 ->middleware(Autenticador::class);
 
-Route::put('/sprints/mover/{id}', [SprintController::class, 'mover'])->name('sprints.mover');
+
 
 //TAREFAS
 Route::resource('/tarefas', TarefaController::class)
@@ -57,6 +57,11 @@ Route::resource('/tarefas', TarefaController::class)
 
 Route::resource('projetos.sprints', ProjetoSprintController::class)
 ->middleware(Autenticador::class);
+
+Route::get('projetos/{projeto}/sprints/{sprint}/mover', [ProjetoSprintController::class, 'mover'])->name('sprints.mover');
+Route::put('projetos.sprints.moverSprint', [ProjetoSprintController::class, 'moverSprint'])->name('projetos.sprints.moverSprint');
+
+
 
 Route::resource('projetos.sprints.tarefas', SprintTarefaController::class)
 ->middleware(Autenticador::class);

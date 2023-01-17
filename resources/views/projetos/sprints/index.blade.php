@@ -1,6 +1,14 @@
 <x-style title="Sprints" >
 <a class="btn btn-info" href="{{ route('sprints.show', ['sprint' => $sprint]) }}">Ver Projeto {{$projeto->nome_projeto}} Nº {{$projeto->id}} Sprint Nº {{$numSprint}}</a>
-    {{-- lista select --}}
+<br>
+<br>
+<a class="btn btn-danger" href="{{route('sprints.mover', ['projeto' => $projeto , 'sprint'=> $sprint]  )}}" onclick="return confirm(
+    'Ao criar nova Sprint, a atual será inativada e suas tarefas transferida para nova, deseja continuar?'
+    )" class="mt-3 btn btn-danger" >Nova Sprint (não implementado)</a>
+<br><br>
+
+
+
 
 @isset($mensagemSucesso)
 <div class="alert alert-success">

@@ -39,7 +39,7 @@
         </form>
         <form class="position-absolute" action="{{ route('sprints.destroy', ['sprint' => $sprint]) }}" method="post">
             @csrf
-            @method('DELETE')
+            @method('PUT')
             <button onclick="return confirm(
                 'Ao criar nova Sprint, a atual será inativada e suas tarefas transferida para nova, deseja continuar?'
                 )" class="mt-3 btn btn-danger" >Mover Sprint (não implementado)</button>

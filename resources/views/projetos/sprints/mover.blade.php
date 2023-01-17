@@ -3,12 +3,12 @@
 
 </x-style>
 
+<form action="{{ route('projetos.sprints.moverSprint', ['projeto' => $projeto, 'sprint' => $sprint]) }}" method="post">
 
-<form action="{{ route('projetos.sprints.moverSprint', ['id' => $sprint->projetos[0]->id]) }}" method="post">
 
     @csrf
     @method("PUT")
-    <input type="hidden" name="projetos_id" value="{{$projeto->id}}">
+    <input type="hidden" name="projeto_id" value="{{$projeto->id}}">
     <input type="hidden" name="sprint_id" value="{{$sprint->id}}">
 
         <div class="container mt-3 col-md-8">
